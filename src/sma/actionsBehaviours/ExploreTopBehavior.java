@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.jme3.math.Vector3f;
 
+import env.jme.Situation;
 import jade.core.Agent;
 import sma.AbstractAgent;
 import sma.InterestPoint.Type;
@@ -27,6 +28,21 @@ public class ExploreTopBehavior extends ExploreBehavior{
 		// TODO Auto-generated method stub
 		super.onTick();
 	}
+	
+	
+
+
+	/*
+	@Override
+	boolean setTarget() {
+		// TODO Auto-generated method stub
+		target = findInterestingNeighbor();
+		if(target != null){
+			agent.goTo(target);
+			agent.lastAction = Situation.EXPLORE_OFF;
+		}
+		return target != null;
+	}*/
 
 
 

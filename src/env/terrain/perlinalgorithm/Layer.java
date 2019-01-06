@@ -71,6 +71,7 @@ public class Layer {
 	/**
 	 * Print a heightMap
 	 */
+	@Override
 	public String toString() {
 		String s="";
 		for (int i=0; i<size; i++) {

@@ -1,7 +1,5 @@
 package tests.prologTest;
 
-import java.util.Hashtable;
-
 import org.jpl7.*;
 
 public class TestPrologLauncher {

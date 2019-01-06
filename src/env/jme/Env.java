@@ -1,60 +1,23 @@
 package env.jme;
 
 
-import fileManipulations.FileManipulations;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.math.RoundingMode;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.ReadOnlyFileSystemException;
-import java.text.DecimalFormat;
-
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
-import com.jme3.animation.LoopMode;
 import com.jme3.app.SimpleApplication;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.bullet.PhysicsSpace;
 import com.jme3.bullet.collision.shapes.CapsuleCollisionShape;
-import com.jme3.bullet.control.BetterCharacterControl;
 import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.RigidBodyControl;
-import com.jme3.collision.CollisionResult;
-import com.jme3.collision.CollisionResults;
-
-import com.jme3.input.KeyInput;
-import com.jme3.input.MouseInput;
-import com.jme3.input.controls.ActionListener;
-import com.jme3.input.controls.KeyTrigger;
-import com.jme3.input.controls.MouseButtonTrigger;
-import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.math.Ray;
-import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.CameraNode;
-import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.control.CameraControl.ControlDirection;
-import com.jme3.scene.shape.Box;
-import com.jme3.scene.shape.Sphere;
 import com.jme3.terrain.geomipmap.TerrainLodControl;
 import com.jme3.terrain.geomipmap.TerrainQuad;
-import com.jme3.terrain.heightmap.AbstractHeightMap;
 import com.jme3.texture.Texture;
 import com.jme3.texture.Texture.WrapMode;
-import com.jme3.util.SkyFactory;
-
 import dataStructures.tuple.Tuple2;
 import env.terrain.TerrainTools;
-
-import com.jme3.scene.control.Control;
 
 
 
@@ -329,6 +292,7 @@ public class Env extends SimpleApplication /*implements ActionListener*/ {
 //        inputManager.addListener(this, "Jump", "Shoot");
 //    }
 	
+	@Override
 	public void simpleUpdate(float tpf) {
 //        Vector3f camDir = cam.getDirection().mult(0.2f);
 //        Vector3f camLeft = cam.getLeft().mult(0.2f);

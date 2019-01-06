@@ -1,0 +1,57 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     map-weka.filters.unsupervised.attribute.Remove-R12-weka.filters.unsupervised.attribute.Remove-R8,11-weka.filters.unsupervised.attribute.Remove-R9-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.Remove-R3
+Instances:    11
+Attributes:   7
+              offSize
+              offValue
+              averageAltitude
+              minAltitude
+              maxAltitude
+              fovValue
+              victory
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+offValue <= 80488.64
+|   maxAltitude <= -109.97145: DEFEAT (6.0)
+|   maxAltitude > -109.97145: VICTORY (3.0/1.0)
+offValue > 80488.64: VICTORY (2.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances           4               36.3636 %
+Incorrectly Classified Instances         7               63.6364 %
+Kappa statistic                         -0.4528
+Mean absolute error                      0.6226
+Root mean squared error                  0.7149
+Relative absolute error                124.5238 %
+Root relative squared error            138.9459 %
+Total Number of Instances               11     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0.429      0         0         0          0.232    VICTORY
+                 0.571     1          0.5       0.571     0.533      0.232    DEFEAT
+Weighted Avg.    0.364     0.792      0.318     0.364     0.339      0.232
+
+=== Confusion Matrix ===
+
+ a b   <-- classified as
+ 0 4 | a = VICTORY
+ 3 4 | b = DEFEAT
+

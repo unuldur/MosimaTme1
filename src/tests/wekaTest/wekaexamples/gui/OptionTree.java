@@ -41,6 +41,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTree;
+import javax.swing.WindowConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.TreeSelectionEvent;
@@ -105,13 +106,16 @@ public class OptionTree
     
     m_TextOptionsFull = new JTextField(50);
     m_TextOptionsFull.getDocument().addDocumentListener(new DocumentListener() {
-      public void changedUpdate(DocumentEvent e) {
+      @Override
+	public void changedUpdate(DocumentEvent e) {
 	update();
       }
-      public void insertUpdate(DocumentEvent e) {
+      @Override
+	public void insertUpdate(DocumentEvent e) {
 	update();
       }
-      public void removeUpdate(DocumentEvent e) {
+      @Override
+	public void removeUpdate(DocumentEvent e) {
 	update();
       }
     });
@@ -124,7 +128,8 @@ public class OptionTree
     m_ButtonUpdate = new JButton("Update");
     m_ButtonUpdate.setMnemonic('U');
     m_ButtonUpdate.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	updateTree();
       }
     });
@@ -133,7 +138,8 @@ public class OptionTree
     // table
     m_TreeOptions = new JTree();
     m_TreeOptions.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
-      public void valueChanged(TreeSelectionEvent e) {
+      @Override
+	public void valueChanged(TreeSelectionEvent e) {
 	generatePartialOptions();
       }
     });
@@ -145,13 +151,16 @@ public class OptionTree
 
     m_TextOptionsSelected = new JTextField(50);
     m_TextOptionsSelected.getDocument().addDocumentListener(new DocumentListener() {
-      public void changedUpdate(DocumentEvent e) {
+      @Override
+	public void changedUpdate(DocumentEvent e) {
 	update();
       }
-      public void insertUpdate(DocumentEvent e) {
+      @Override
+	public void insertUpdate(DocumentEvent e) {
 	update();
       }
-      public void removeUpdate(DocumentEvent e) {
+      @Override
+	public void removeUpdate(DocumentEvent e) {
 	update();
       }
     });
@@ -164,7 +173,8 @@ public class OptionTree
     m_ButtonCopy = new JButton("Copy");
     m_ButtonCopy.setMnemonic('C');
     m_ButtonCopy.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
         StringSelection selection = new StringSelection(m_TextOptionsSelected.getText());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(selection, selection);
@@ -284,9 +294,10 @@ public class OptionTree
     final JFrame jf = new JFrame("Option Tree");
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(tree, BorderLayout.CENTER);
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.addWindowListener(new WindowAdapter() {
-      public void windowClosing(WindowEvent e) {
+      @Override
+	public void windowClosing(WindowEvent e) {
         jf.dispose();
       }
     });

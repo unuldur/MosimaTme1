@@ -42,7 +42,7 @@ public class PerlinAlgorithm {
 		
 		for (int i=0; i<size; i++) {
 			for (int j=0; j<size; j++) {
-				rand.v[i][j] = (float)new Random().nextInt(maxAlt);
+				rand.v[i][j] = new Random().nextInt(maxAlt);
 			}
 		}
 		/*save rand[][]*/
@@ -79,7 +79,7 @@ public class PerlinAlgorithm {
 				for (n=0; n<octaves; n++) {
 					layer.v[i][j] += my_copies[n].v[i][j]*my_copies[n].persistence;
 				}
-				layer.v[i][j] = (float) (layer.v[i][j] / sum_persistence);
+				layer.v[i][j] = layer.v[i][j] / sum_persistence;
 			}
 		}
 		
@@ -101,7 +101,7 @@ public class PerlinAlgorithm {
 						}
 					}
 				}
-				smoothing.v[x][y] = (float)a/n;
+				smoothing.v[x][y] = a/n;
 			}
 		}
 		
@@ -130,7 +130,7 @@ public class PerlinAlgorithm {
 		float q;
 		float step = (float)(r.size*1./frequence);
 		
-		q = (float)i/step;
+		q = i/step;
 		bound1x = (int) (q*step);
 		bound2x = (int) ((q+1)*step);
 		
@@ -138,7 +138,7 @@ public class PerlinAlgorithm {
 			bound2x = r.size-1;
 		}
 		
-		q = (float)j/step;
+		q = j/step;
 		bound1y = (int) (q*step);
 		bound2y = (int) ((q+1)*step);
 		

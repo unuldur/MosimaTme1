@@ -73,7 +73,7 @@ public class HuntBehavior extends TickerBehaviour {
 		if (enemy != null){
 			System.out.println("Enemy in sight");
 			agent.removeBehaviour(this);
-			Attack a = new Attack(agent, FinalAgent.PERIOD, enemy.getSecond());
+			Attack a = new Attack(agent, FinalAgent.PERIOD, enemy.getSecond(), exploreBehaviorType != ExploreBehavior.class);
 			agent.currentBehavior = a;
 			agent.addBehaviour(a);
 			return;
@@ -94,7 +94,11 @@ public class HuntBehavior extends TickerBehaviour {
 				if(exploreBehaviorType == ExploreBehavior.class) {
 					ex = new ExploreBehavior(agent, FinalAgent.PERIOD);
 				}else {
-					ex = new ExploreTopBehavior(agent, FinalAgent.PERIOD);
+					if(exploreBehaviorType == ExplorerTreeBehavior.class) {
+						ex = new ExplorerTreeBehavior(agent, FinalAgent.PERIOD);
+					}else {
+						ex = new ExploreTopBehavior(agent, FinalAgent.PERIOD);
+					}
 				}
 				agent.currentBehavior = ex;
 				agent.addBehaviour(ex);
@@ -119,7 +123,7 @@ public class HuntBehavior extends TickerBehaviour {
 			}
 		}
 		if(best != null) {
-			Utils.saveSituation(System.getProperty("user.dir")+"/ressources/learningBase/see", MyBehavior.sit);
+			Utils.saveSituation(System.getProperty("user.dir")+"/ressources/learningBase/see", MyBehavior.sitMy);
 		}
 		return best;
 	}

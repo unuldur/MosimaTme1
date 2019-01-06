@@ -113,7 +113,7 @@ public class TestDefaultCallJPL {
 			// System.exit(1);
 		}
 		for (int i = 0; i < solutions.length - 1; ++i) {
-			Term binding = (Term) solutions[i].get("X");
+			Term binding = solutions[i].get("X");
 			if (!binding.equals(target[i])) {
 				System.out.println("p(X) failed");
 				System.out.println("\tExpected: " + target[i]);
@@ -354,10 +354,12 @@ public class TestDefaultCallJPL {
 			this.id_ = id;
 		}
 
+		@Override
 		public java.lang.String toString() {
 			return "(QueryThread id=" + id_ + ")";
 		}
 
+		@Override
 		public void run() {
 			Query query = new Query("p", new Term[] { new Atom("a"), new Atom("a") });
 			for (int i = 0; i < 10; ++i) {

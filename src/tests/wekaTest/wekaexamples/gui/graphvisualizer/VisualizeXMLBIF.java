@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Displays a graph stored in a XML BIF file.
@@ -49,7 +50,7 @@ public class VisualizeXMLBIF {
     GraphVisualizer gv = new GraphVisualizer();
     gv.readBIF(new FileInputStream(new File(args[0])));
     JFrame jf = new JFrame("BayesNet graph");
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setSize(800, 600);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(gv, BorderLayout.CENTER);

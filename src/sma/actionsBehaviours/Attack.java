@@ -22,15 +22,19 @@ public class Attack extends TickerBehaviour{
 	long lastTimeSeen;
 	Vector3f lastPosition;
 	
+	private boolean my = false;
+	
 	public static boolean openFire = false;
+	
 
-	public Attack(Agent a, long period, String enemy) {
+	public Attack(Agent a, long period, String enemy, boolean my) {
 		super(a, period);
 		this.enemy = enemy;
 		agent = (FinalAgent)((AbstractAgent)a);
 		lastPosition = agent.getEnemyLocation(enemy);
 		lastTimeSeen = System.currentTimeMillis();
 		openFire = false;
+		this.my = my;
 		System.out.println("Player Attack");
 	}
 
@@ -67,11 +71,17 @@ public class Attack extends TickerBehaviour{
 		}
 	}
 	
-	public static void askForFirePermission(){
-		String query = "toOpenFire("
+	public void askForFirePermission(){
+		String query = "";
+		if(my) {
+			query = "toOpenFire("
+					+MyBehavior.sitMy.enemyInSight +","
+					+MyBehavior.sitMy.impactProba+")";
+		}else {
+			query = "toOpenFire("
 					+PrologBehavior.sit.enemyInSight +","
 					+PrologBehavior.sit.impactProba+")";
-		
+		}
 		openFire = Query.hasSolution(query);
 	}
 

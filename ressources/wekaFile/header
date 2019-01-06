@@ -1,0 +1,17 @@
+@relation map
+
+@attribute offSize numeric
+@attribute defSize numeric
+@attribute offValue numeric
+@attribute defValue numeric
+@attribute averageAltitude numeric
+@attribute minAltitude numeric
+@attribute maxAltitude numeric
+@attribute currentAltitude numeric
+@attribute fovValue numeric
+@attribute lastAction {shoot,follow,explore_off,explore_def,hunt,retreat}
+@attribute life numeric
+@attribute impactProba numeric
+@attribute victory {VICTORY,DEFEAT}
+
+@data

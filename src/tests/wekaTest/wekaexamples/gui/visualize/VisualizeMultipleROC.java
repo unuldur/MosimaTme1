@@ -29,6 +29,7 @@ import weka.gui.visualize.ThresholdVisualizePanel;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Visualizes previously saved ROC curves.
@@ -73,7 +74,7 @@ public class VisualizeMultipleROC {
     jf.setSize(500,400);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(tvp, BorderLayout.CENTER);
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setVisible(true);
   }
 }

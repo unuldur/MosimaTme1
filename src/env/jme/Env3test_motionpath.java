@@ -7,9 +7,7 @@ import com.jme3.bullet.collision.shapes.CapsuleCollisionShape;
 import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.cinematic.MotionPath;
-import com.jme3.cinematic.MotionPathListener;
 import com.jme3.cinematic.events.MotionEvent;
-import com.jme3.font.BitmapText;
 import com.jme3.material.Material;
 import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
@@ -139,6 +137,7 @@ public class Env3test_motionpath extends SimpleApplication {
         
 	}
 	
+	@Override
 	public void simpleUpdate(float tpf) {
         motionControl.play();
 	}

@@ -35,6 +35,7 @@ import java.awt.BorderLayout;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Generates and displays a ROC curve from a dataset. Uses a default 
@@ -88,7 +89,7 @@ public class GenerateROC {
     jf.setSize(500,400);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(tvp, BorderLayout.CENTER);
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setVisible(true);
   }
 }

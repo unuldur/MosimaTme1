@@ -45,7 +45,8 @@ public class StartBrowser
    * 
    * @return		the title of the submenu
    */
-  public String getSubmenuTitle() {
+  @Override
+public String getSubmenuTitle() {
     return "Internet";
   }
 
@@ -54,7 +55,8 @@ public class StartBrowser
    * 
    * @return		the name of the menu item.
    */
-  public String getMenuTitle() {
+  @Override
+public String getMenuTitle() {
     return "Start browser";
   }
 
@@ -63,11 +65,13 @@ public class StartBrowser
    * 
    * @param owner 	the owner of potential dialogs
    */
-  public ActionListener getActionListener(JFrame owner) {
+  @Override
+public ActionListener getActionListener(JFrame owner) {
     final JFrame finalOwner = owner;
     
     ActionListener result = new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
+      @Override
+	public void actionPerformed(ActionEvent evt) {
 	BrowserHelper.openURL(finalOwner, "http://www.cs.waikato.ac.nz/~ml/weka/");
       }
     };
@@ -80,6 +84,7 @@ public class StartBrowser
    * 
    * @param frame	the frame object to embed components, etc.
    */
-  public void fillFrame(Component frame) {
+  @Override
+public void fillFrame(Component frame) {
   }
 }

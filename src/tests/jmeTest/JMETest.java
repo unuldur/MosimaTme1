@@ -1,7 +1,5 @@
 package tests.jmeTest;
 
-import com.jme3.app.SimpleApplication;
-
 import env.jme.Env;
 
 public class JMETest {

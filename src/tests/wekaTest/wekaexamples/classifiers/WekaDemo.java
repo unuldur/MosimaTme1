@@ -114,7 +114,8 @@ public class WekaDemo {
   /**
    * outputs some data about the classifier
    */
-  public String toString() {
+  @Override
+public String toString() {
     StringBuffer        result;
 
     result = new StringBuffer();

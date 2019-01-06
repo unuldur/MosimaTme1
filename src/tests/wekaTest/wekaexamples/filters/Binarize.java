@@ -24,6 +24,7 @@ package tests.wekaTest.wekaexamples.filters;
 
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
+import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.MergeTwoValues;
 
 import java.io.BufferedReader;
@@ -103,7 +104,7 @@ public class Binarize {
             merge.setFirstValueIndex("" + (renamed + 1));
             merge.setSecondValueIndex("" + (index + 1));
             merge.setInputFormat(output);
-            output = MergeTwoValues.useFilter(output, merge);
+            output = Filter.useFilter(output, merge);
             // rename value (since merge creates combined name)
             output.renameAttributeValue(
                 output.attribute(attIndex), 

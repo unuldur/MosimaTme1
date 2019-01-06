@@ -1,11 +1,6 @@
 package sma.actionsBehaviours;
 
 import org.jpl7.Query;
-import org.lwjgl.Sys;
-
-import com.jme3.math.Vector3f;
-
-import dataStructures.tuple.Tuple2;
 import env.jme.NewEnv;
 import env.jme.Situation;
 import jade.core.Agent;
@@ -22,8 +17,8 @@ public class PrologBehavior extends TickerBehaviour {
 
 	private static final long serialVersionUID = 5739600674796316846L;
 
-	public static FinalAgent agent;
-	public static String prologFile;
+	public FinalAgent agent;
+	public String prologFile;
 	public static Class nextBehavior;
 
 	public static Situation sit;
@@ -33,6 +28,7 @@ public class PrologBehavior extends TickerBehaviour {
 		super(a, period);
 		agent = (FinalAgent)((AbstractAgent)a);
 		this.prologFile = prologFile;
+		
 	}
 
 
@@ -94,15 +90,16 @@ public class PrologBehavior extends TickerBehaviour {
 
 
 	public void setNextBehavior(){
-
+		System.out.println("NotDummy: plop " + nextBehavior + " "+ agent.currentBehavior.getClass());
 		if(agent.currentBehavior != null && nextBehavior == agent.currentBehavior.getClass()){
 			return;
 		}
 		if (agent.currentBehavior != null){
 			agent.removeBehaviour(agent.currentBehavior);
 		}
-
+		System.out.println("NotDummy: plop3 " + nextBehavior);
 		if (nextBehavior == ExploreBehavior.class){
+			System.out.println("NotDummy: plop2");
 			ExploreBehavior ex = new ExploreBehavior(agent, FinalAgent.PERIOD);
 			agent.addBehaviour(ex);
 			agent.currentBehavior = ex;
@@ -114,7 +111,7 @@ public class PrologBehavior extends TickerBehaviour {
 
 		}else if(nextBehavior == Attack.class){
 
-			Attack a = new Attack(agent, FinalAgent.PERIOD, sit.enemy);
+			Attack a = new Attack(agent, FinalAgent.PERIOD, sit.enemy, false);
 			agent.currentBehavior = a;
 			agent.addBehaviour(a);
 

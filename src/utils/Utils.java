@@ -7,11 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 import env.jme.Situation;
-import sma.actionsBehaviours.MyBehavior;
 
 public class Utils {
 	public static void saveSituation(String file, Situation sit)
 	{
+		if(sit == null) return;
 		String res = sit.toCSVFile();
 		Calendar c = Calendar.getInstance();
 		Date date = c.getTime();

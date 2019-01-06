@@ -6,14 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Paths;
 import java.util.Random;
 
 
 import dataStructures.tuple.Tuple2;
 import env.terrain.perlinalgorithm.Layer;
 import env.terrain.perlinalgorithm.PerlinAlgorithm;
-import fileManipulations.FileManipulations;
 
 /**
  * Class for terrains generations, saving, and other tools.
@@ -95,7 +93,7 @@ public class TerrainTools {
 					res[i*size+j] = new Random().nextFloat()*(max - min) + min;
 				}
 				else {
-					res[i*size+j] = (float)(new Random().nextInt(256));
+					res[i*size+j] = (new Random().nextInt(256));
 				}
 			}
 		}

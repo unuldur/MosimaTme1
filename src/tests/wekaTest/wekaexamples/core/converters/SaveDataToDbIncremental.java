@@ -26,6 +26,7 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.DatabaseLoader;
 import weka.core.converters.DatabaseSaver;
+import weka.core.converters.Saver;
 
 /**
  * Loads data from a JDBC database using the
@@ -78,7 +79,7 @@ public class SaveDataToDbIncremental {
     // or we could just update the name of the dataset:
     // saver.setRelationForTableName(true);
     // data.setRelationName("whatsoever2");
-    saver.setRetrieval(DatabaseSaver.INCREMENTAL);
+    saver.setRetrieval(Saver.INCREMENTAL);
     saver.setStructure(data);
     count = 0;
     for (int i = 0; i < data.numInstances(); i++) {

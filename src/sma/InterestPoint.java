@@ -3,7 +3,6 @@ package sma;
 import java.util.ArrayList;
 
 import com.jme3.math.Vector3f;
-import com.jme3.scene.Spatial;
 
 
 public class InterestPoint {

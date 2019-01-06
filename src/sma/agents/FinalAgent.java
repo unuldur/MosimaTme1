@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 
-import env.jme.Environment;
 import env.jme.NewEnv;
 import jade.core.behaviours.Behaviour;
 import sma.AbstractAgent;
@@ -13,7 +12,6 @@ import sma.actionsBehaviours.DumbBehavior;
 import sma.actionsBehaviours.ExploreBehavior;
 import sma.actionsBehaviours.HuntBehavior;
 import sma.actionsBehaviours.PrologBehavior;
-import sma.actionsBehaviours.TempSphereCast;
 
 public class FinalAgent extends AbstractAgent{
 
@@ -49,6 +47,7 @@ public class FinalAgent extends AbstractAgent{
 	
 	public Behaviour currentBehavior;
 	
+	@Override
 	protected void setup(){
 		super.setup();
 		

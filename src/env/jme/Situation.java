@@ -1,15 +1,12 @@
 package env.jme;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import com.jme3.math.Vector3f;
 
 import dataStructures.tuple.Tuple2;
 import sma.AbstractAgent;
 import sma.InterestPoint;
 import sma.actionsBehaviours.HuntBehavior;
-import sma.actionsBehaviours.LegalActions.LegalAction;
 import sma.agents.FinalAgent;
 
 

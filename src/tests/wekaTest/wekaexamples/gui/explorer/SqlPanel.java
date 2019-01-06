@@ -119,6 +119,7 @@ public class SqlPanel
     m_ButtonLoad.setMnemonic('L');
     panel.add(m_ButtonLoad);
     m_ButtonLoad.addActionListener(new ActionListener(){
+	@Override
 	public void actionPerformed(ActionEvent evt){
 	  m_Support.firePropertyChange("", null, null);
       }
@@ -130,7 +131,8 @@ public class SqlPanel
     panel.add(m_LabelQuery);
     
     addPropertyChangeListener(new PropertyChangeListener() {
-      public void propertyChange(PropertyChangeEvent e) {
+      @Override
+	public void propertyChange(PropertyChangeEvent e) {
 	try {
 	  m_Log.statusMessage("Querying database...");
 	  m_Log.logMessage(
@@ -169,7 +171,8 @@ public class SqlPanel
    * 
    * @param parent	the parent frame
    */
-  public void setExplorer(Explorer parent) {
+  @Override
+public void setExplorer(Explorer parent) {
     m_Explorer = parent;
   }
   
@@ -178,7 +181,8 @@ public class SqlPanel
    * 
    * @return		the parent
    */
-  public Explorer getExplorer() {
+  @Override
+public Explorer getExplorer() {
     return m_Explorer;
   }
   
@@ -187,7 +191,8 @@ public class SqlPanel
    * 
    * @return 		the title of this tab
    */
-  public String getTabTitle() {
+  @Override
+public String getTabTitle() {
     return "SQL";
   }
   
@@ -196,7 +201,8 @@ public class SqlPanel
    * 
    * @return 		the tooltip of this tab
    */
-  public String getTabTitleToolTip() {
+  @Override
+public String getTabTitleToolTip() {
     return "Retrieving data from databases";
   }
 
@@ -205,7 +211,8 @@ public class SqlPanel
    * 
    * @param inst	ignored
    */
-  public void setInstances(Instances inst) {
+  @Override
+public void setInstances(Instances inst) {
     // ignored
   }
   
@@ -214,7 +221,8 @@ public class SqlPanel
    *
    * @param newLog 	the Logger that will now get info messages
    */
-  public void setLog(Logger newLog) {
+  @Override
+public void setLog(Logger newLog) {
     m_Log = newLog;
   }
   
@@ -223,7 +231,8 @@ public class SqlPanel
    *
    * @param l 		a value of type 'PropertyChangeListener'
    */
-  public void addPropertyChangeListener(PropertyChangeListener l) {
+  @Override
+public void addPropertyChangeListener(PropertyChangeListener l) {
     m_Support.addPropertyChangeListener(l);
   }
 
@@ -232,7 +241,8 @@ public class SqlPanel
    *
    * @param l 		a value of type 'PropertyChangeListener'
    */
-  public void removePropertyChangeListener(PropertyChangeListener l) {
+  @Override
+public void removePropertyChangeListener(PropertyChangeListener l) {
     m_Support.removePropertyChangeListener(l);
   }
 
@@ -249,6 +259,7 @@ public class SqlPanel
       final SqlPanel sp = new SqlPanel();
       jf.getContentPane().add(sp, BorderLayout.CENTER);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
+	@Override
 	public void windowClosing(java.awt.event.WindowEvent e) {
 	  jf.dispose();
 	  System.exit(0);

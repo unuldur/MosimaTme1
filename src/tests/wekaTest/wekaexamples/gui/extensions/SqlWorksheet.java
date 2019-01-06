@@ -47,7 +47,8 @@ public class SqlWorksheet
    * 
    * @return		the title of the submenu
    */
-  public String getSubmenuTitle() {
+  @Override
+public String getSubmenuTitle() {
     return null;
   }
 
@@ -56,7 +57,8 @@ public class SqlWorksheet
    * 
    * @return		the name of the menu item.
    */
-  public String getMenuTitle() {
+  @Override
+public String getMenuTitle() {
     return "SQL Worksheet";
   }
 
@@ -65,7 +67,8 @@ public class SqlWorksheet
    * 
    * @param owner 	the owner of potential dialogs
    */
-  public ActionListener getActionListener(JFrame owner) {
+  @Override
+public ActionListener getActionListener(JFrame owner) {
     return null;
   }
 
@@ -74,7 +77,8 @@ public class SqlWorksheet
    * 
    * @param frame	the frame to fill
    */
-  public void fillFrame(Component frame) {
+  @Override
+public void fillFrame(Component frame) {
     SqlViewer sql = new SqlViewer(null);
 
     // add sql viewer component

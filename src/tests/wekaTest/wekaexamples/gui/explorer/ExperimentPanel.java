@@ -189,7 +189,8 @@ public class ExperimentPanel
     m_OutText.setFont(new Font("Monospaced", Font.PLAIN, 12));
     m_OutText.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     m_OutText.addMouseListener(new MouseAdapter() {
-      public void mouseClicked(MouseEvent e) {
+      @Override
+	public void mouseClicked(MouseEvent e) {
 	if ((e.getModifiers() & InputEvent.BUTTON1_MASK)
 	    != InputEvent.BUTTON1_MASK) {
 	  m_OutText.selectAll();
@@ -202,7 +203,8 @@ public class ExperimentPanel
     m_ClassifierEditor.setClassType(Classifier.class);
     m_ClassifierEditor.setValue(ExplorerDefaults.getClassifier());
     m_ClassifierEditor.addPropertyChangeListener(new PropertyChangeListener() {
-      public void propertyChange(PropertyChangeEvent e) {
+      @Override
+	public void propertyChange(PropertyChangeEvent e) {
 	repaint();
       }
     });
@@ -219,7 +221,8 @@ public class ExperimentPanel
     m_EvalCombo.setMinimumSize(COMBO_SIZE);
     m_EvalCombo.setSelectedIndex(0);
     m_EvalCombo.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	int selected = m_EvalCombo.getSelectedIndex();
 	if (selected == 0) {
 	  m_FoldsPercLabel.setText("Folds");
@@ -241,7 +244,8 @@ public class ExperimentPanel
     m_ClassCombo.setMaximumSize(COMBO_SIZE);
     m_ClassCombo.setMinimumSize(COMBO_SIZE);
     m_ClassCombo.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	updateCapabilitiesFilter(m_ClassifierEditor.getCapabilitiesFilter());
       }
     });
@@ -249,7 +253,8 @@ public class ExperimentPanel
     m_StartBut.setToolTipText("Starts the experiment");
     m_StartBut.setEnabled(false);
     m_StartBut.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	startExperiment();
       }
     });
@@ -257,7 +262,8 @@ public class ExperimentPanel
     m_StopBut.setToolTipText("Stops a running experiment");
     m_StopBut.setEnabled(false);
     m_StopBut.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	stopExperiment();
       }
     });
@@ -265,7 +271,8 @@ public class ExperimentPanel
     m_History.setHandleRightClicks(false);
     // see if we can popup a menu for the selected result
     m_History.getList().addMouseListener(new MouseAdapter() {
-      public void mouseClicked(MouseEvent e) {
+      @Override
+	public void mouseClicked(MouseEvent e) {
 	if (((e.getModifiers() & InputEvent.BUTTON1_MASK)
 	    != InputEvent.BUTTON1_MASK) || e.isAltDown()) {
 	  int index = m_History.getList().locationToIndex(e.getPoint());
@@ -380,7 +387,8 @@ public class ExperimentPanel
     p3.add(js, BorderLayout.CENTER);
     js.getViewport().addChangeListener(new ChangeListener() {
       private int lastHeight;
-      public void stateChanged(ChangeEvent e) {
+      @Override
+	public void stateChanged(ChangeEvent e) {
 	JViewport vp = (JViewport)e.getSource();
 	int h = vp.getViewSize().height; 
 	if (h != lastHeight) { // i.e. an addition not just a user scrolling
@@ -430,7 +438,8 @@ public class ExperimentPanel
    *
    * @param newLog 	the Logger that will now get info messages
    */
-  public void setLog(Logger newLog) {
+  @Override
+public void setLog(Logger newLog) {
     m_Log = newLog;
   }
 
@@ -439,7 +448,8 @@ public class ExperimentPanel
    *
    * @param inst 	a set of Instances
    */
-  public void setInstances(Instances inst) {
+  @Override
+public void setInstances(Instances inst) {
     m_Instances = inst;
 
     String[] attribNames = new String [m_Instances.numAttributes()];
@@ -500,6 +510,7 @@ public class ExperimentPanel
     JMenuItem viewMainBuffer = new JMenuItem("View in main window");
     if (selectedName != null) {
       viewMainBuffer.addActionListener(new ActionListener() {
+	@Override
 	public void actionPerformed(ActionEvent e) {
 	  m_History.setSingle(selectedName);
 	}
@@ -513,6 +524,7 @@ public class ExperimentPanel
     JMenuItem viewSepBuffer = new JMenuItem("View in separate window");
     if (selectedName != null) {
       viewSepBuffer.addActionListener(new ActionListener() {
+	@Override
 	public void actionPerformed(ActionEvent e) {
 	  m_History.openFrame(selectedName);
 	}
@@ -526,6 +538,7 @@ public class ExperimentPanel
     JMenuItem saveOutput = new JMenuItem("Save result buffer");
     if (selectedName != null) {
       saveOutput.addActionListener(new ActionListener() {
+	@Override
 	public void actionPerformed(ActionEvent e) {
 	  saveBuffer(selectedName);
 	}
@@ -539,6 +552,7 @@ public class ExperimentPanel
     JMenuItem deleteOutput = new JMenuItem("Delete result buffer");
     if (selectedName != null) {
       deleteOutput.addActionListener(new ActionListener() {
+	@Override
 	public void actionPerformed(ActionEvent e) {
 	  m_History.removeResult(selectedName);
 	}
@@ -566,6 +580,7 @@ public class ExperimentPanel
       }
       
       m_RunThread = new Thread() {
+	@Override
 	public void run() {
 	  // set up everything:
 	  m_Log.statusMessage("Setting up...");
@@ -876,7 +891,8 @@ public class ExperimentPanel
    * 
    * @param e		the associated change event
    */
-  public void capabilitiesFilterChanged(CapabilitiesFilterChangeEvent e) {
+  @Override
+public void capabilitiesFilterChanged(CapabilitiesFilterChangeEvent e) {
     if (e.getFilter() == null)
       updateCapabilitiesFilter(null);
     else
@@ -889,7 +905,8 @@ public class ExperimentPanel
    * 
    * @param parent	the parent frame
    */
-  public void setExplorer(Explorer parent) {
+  @Override
+public void setExplorer(Explorer parent) {
     m_Explorer = parent;
   }
   
@@ -898,7 +915,8 @@ public class ExperimentPanel
    * 
    * @return		the parent
    */
-  public Explorer getExplorer() {
+  @Override
+public Explorer getExplorer() {
     return m_Explorer;
   }
   
@@ -907,7 +925,8 @@ public class ExperimentPanel
    * 
    * @return 		the title of this tab
    */
-  public String getTabTitle() {
+  @Override
+public String getTabTitle() {
     return "Experiment";
   }
   
@@ -916,7 +935,8 @@ public class ExperimentPanel
    * 
    * @return 		the tooltip of this tab
    */
-  public String getTabTitleToolTip() {
+  @Override
+public String getTabTitleToolTip() {
     return "Perform experiments";
   }
   
@@ -935,6 +955,7 @@ public class ExperimentPanel
       sp.setLog(lp);
       jf.getContentPane().add(lp, BorderLayout.SOUTH);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
+	@Override
 	public void windowClosing(java.awt.event.WindowEvent e) {
 	  jf.dispose();
 	  System.exit(0);

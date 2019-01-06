@@ -1,10 +1,6 @@
 package sma;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Spatial;
 
@@ -12,14 +8,8 @@ import dataStructures.tuple.Tuple2;
 import env.EnvironmentManager;
 import env.jme.Environment;
 import env.jme.NewEnv;
-import env.jme.Situation;
-import jade.core.AID;
 import jade.core.Agent;
-import jade.lang.acl.ACLMessage;
-import sma.actionsBehaviours.MyBehavior;
-import sma.actionsBehaviours.LegalActions.LegalAction;
 import sma.agents.FinalAgent;
-import utils.Utils;
 
 public class AbstractAgent extends Agent implements EnvironmentManager {
 	
@@ -133,6 +123,7 @@ public class AbstractAgent extends Agent implements EnvironmentManager {
 		this.env.deployAgent(getLocalName(), "enemy",false);
 	}
 
+	@Override
 	protected void setup() {
 		super.setup();
 	}

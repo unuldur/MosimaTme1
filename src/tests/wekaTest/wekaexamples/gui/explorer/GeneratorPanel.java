@@ -122,7 +122,8 @@ public class GeneratorPanel
     add(new PropertyPanel(m_GeneratorEditor), BorderLayout.NORTH);
     m_GeneratorEditor.setClassType(DataGenerator.class);
     m_GeneratorEditor.addPropertyChangeListener(new PropertyChangeListener() {
-      public void propertyChange(PropertyChangeEvent e) {
+      @Override
+	public void propertyChange(PropertyChangeEvent e) {
 	repaint();
       }
     });
@@ -141,6 +142,7 @@ public class GeneratorPanel
     m_ButtonGenerate.setMnemonic('G');
     panel.add(m_ButtonGenerate);
     m_ButtonGenerate.addActionListener(new ActionListener(){
+	@Override
 	public void actionPerformed(ActionEvent evt){
 	    DataGenerator generator = (DataGenerator) m_GeneratorEditor.getValue();
 	    String relName = generator.getRelationName();
@@ -175,13 +177,15 @@ public class GeneratorPanel
     m_ButtonUse.setMnemonic('U');
     panel.add(m_ButtonUse);
     m_ButtonUse.addActionListener(new ActionListener(){
+	@Override
 	public void actionPerformed(ActionEvent evt){
 	  m_Support.firePropertyChange("", null, null);
       }
     });
     
     addPropertyChangeListener(new PropertyChangeListener() {
-      public void propertyChange(PropertyChangeEvent e) {
+      @Override
+	public void propertyChange(PropertyChangeEvent e) {
 	try {
 	  Instances data = new Instances(new StringReader(m_Output.getText()));
 	  // set data in preproc panel as well (will notify of capabilties changes)
@@ -203,7 +207,8 @@ public class GeneratorPanel
    * 
    * @param parent	the parent frame
    */
-  public void setExplorer(Explorer parent) {
+  @Override
+public void setExplorer(Explorer parent) {
     m_Explorer = parent;
   }
   
@@ -212,7 +217,8 @@ public class GeneratorPanel
    * 
    * @return		the parent
    */
-  public Explorer getExplorer() {
+  @Override
+public Explorer getExplorer() {
     return m_Explorer;
   }
   
@@ -221,7 +227,8 @@ public class GeneratorPanel
    * 
    * @return 		the title of this tab
    */
-  public String getTabTitle() {
+  @Override
+public String getTabTitle() {
     return "DataGeneration";
   }
   
@@ -230,7 +237,8 @@ public class GeneratorPanel
    * 
    * @return 		the tooltip of this tab
    */
-  public String getTabTitleToolTip() {
+  @Override
+public String getTabTitleToolTip() {
     return "Generating artificial datasets";
   }
 
@@ -239,7 +247,8 @@ public class GeneratorPanel
    * 
    * @param inst	ignored
    */
-  public void setInstances(Instances inst) {
+  @Override
+public void setInstances(Instances inst) {
     // ignored
   }
   
@@ -248,7 +257,8 @@ public class GeneratorPanel
    *
    * @param newLog 	the Logger that will now get info messages
    */
-  public void setLog(Logger newLog) {
+  @Override
+public void setLog(Logger newLog) {
     m_Log = newLog;
   }
   
@@ -257,7 +267,8 @@ public class GeneratorPanel
    *
    * @param l 		a value of type 'PropertyChangeListener'
    */
-  public void addPropertyChangeListener(PropertyChangeListener l) {
+  @Override
+public void addPropertyChangeListener(PropertyChangeListener l) {
     m_Support.addPropertyChangeListener(l);
   }
 
@@ -266,7 +277,8 @@ public class GeneratorPanel
    *
    * @param l 		a value of type 'PropertyChangeListener'
    */
-  public void removePropertyChangeListener(PropertyChangeListener l) {
+  @Override
+public void removePropertyChangeListener(PropertyChangeListener l) {
     m_Support.removePropertyChangeListener(l);
   }
 
@@ -283,6 +295,7 @@ public class GeneratorPanel
       final GeneratorPanel sp = new GeneratorPanel();
       jf.getContentPane().add(sp, BorderLayout.CENTER);
       jf.addWindowListener(new java.awt.event.WindowAdapter() {
+	@Override
 	public void windowClosing(java.awt.event.WindowEvent e) {
 	  jf.dispose();
 	  System.exit(0);

@@ -36,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Runs a clusterer on a dataset and visualizes the cluster assignments, 
@@ -100,7 +101,7 @@ public class VisualizeClusterAssignments {
     // display data
     // taken from: ClustererPanel.visualizeClusterAssignments(VisualizePanel)
     JFrame jf = new JFrame("Weka Clusterer Visualize: " + vp.getName());
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setSize(500, 400);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(vp, BorderLayout.CENTER);

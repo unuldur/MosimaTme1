@@ -1,24 +1,16 @@
 package sma.actionsBehaviours;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import org.jpl7.Query;
 
-import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
-import com.jme3.renderer.Camera;
-
 import env.jme.Situation;
 import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
 import sma.AbstractAgent;
 import sma.InterestPoint;
 import sma.InterestPoint.Type;
-import sma.actionsBehaviours.LegalActions.LegalAction;
 import sma.agents.FinalAgent;
-import sma.agents.FinalAgent.MoveMode;
-import weka.core.Debug;
 
 public class ExploreBehavior extends TickerBehaviour {
 
@@ -39,7 +31,7 @@ public class ExploreBehavior extends TickerBehaviour {
 	
 	FinalAgent agent;
 	
-	private Vector3f target;
+	protected Vector3f target;
 	protected Type targetType;
 	
 	private long randDate;
@@ -56,6 +48,7 @@ public class ExploreBehavior extends TickerBehaviour {
 	}
 
 	
+	@Override
 	protected void onTick(){
 		if (target == null && !setTarget()){ 
 			randomMove();

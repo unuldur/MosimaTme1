@@ -1,12 +1,9 @@
 package env.jme;
 
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
 import com.jme3.bullet.collision.shapes.CollisionShape;
 import com.jme3.bullet.control.CharacterControl;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
-import com.jme3.scene.Spatial;
 import com.jme3.terrain.geomipmap.TerrainQuad;
 
 
@@ -36,6 +33,7 @@ public class PlayerControl extends CharacterControl{
         
     }
 
+	@Override
 	public void update(float tpf) {
 		super.update(tpf);
 		

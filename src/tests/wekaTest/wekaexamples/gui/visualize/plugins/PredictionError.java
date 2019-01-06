@@ -31,8 +31,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import org.math.plot.Plot2DPanel;
-
 /**
  * A panel that displays the prediction errors.
  * 
@@ -57,7 +55,8 @@ public class PredictionError
    * @return 		menuitem for opening visualization(s), or null
    *         		to indicate no visualization is applicable for the input
    */
-  public JMenuItem getVisualizeMenuItem(FastVector preds, Attribute classAtt) {
+  @Override
+public JMenuItem getVisualizeMenuItem(FastVector preds, Attribute classAtt) {
     final FastVector finalPreds = preds;
     final Attribute finalClassAtt = classAtt;
     
@@ -67,7 +66,8 @@ public class PredictionError
     
     JMenuItem result = new JMenuItem("Prediction error");
     result.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent arg0) {
+      @Override
+	public void actionPerformed(ActionEvent arg0) {
 	display(finalPreds, finalClassAtt);
       }
     });
@@ -81,7 +81,8 @@ public class PredictionError
    * 
    * @return 		the minimum version
    */
-  public String getMinVersion() {
+  @Override
+public String getMinVersion() {
     return "3.5.3";
   }
 
@@ -91,7 +92,8 @@ public class PredictionError
    * 
    * @return 		the maximum version
    */
-  public String getMaxVersion() {
+  @Override
+public String getMaxVersion() {
     return "3.6.0";
   }
 
@@ -101,7 +103,8 @@ public class PredictionError
    * 
    * @return 		the version it was designed for
    */
-  public String getDesignVersion() {
+  @Override
+public String getDesignVersion() {
     return "3.5.7";
   }
   

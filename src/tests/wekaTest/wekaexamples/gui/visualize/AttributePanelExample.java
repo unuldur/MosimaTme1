@@ -29,6 +29,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Example class explaining the usage of the AttributePanel class, which
@@ -57,7 +58,7 @@ public class AttributePanelExample {
       panel.setCindex(data.classIndex());
 
     JFrame frame = new JFrame("AttributePanel example");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.getContentPane().setLayout(new BorderLayout());
     frame.getContentPane().add(panel);
     frame.setSize(new Dimension(600, 400));

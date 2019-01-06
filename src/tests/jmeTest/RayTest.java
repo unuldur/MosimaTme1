@@ -21,6 +21,7 @@ public class RayTest extends SimpleApplication {
 		new RayTest().start();
 	}
 	
+	@Override
 	public void simpleInitApp() {
 		
 		flyCam.setMoveSpeed(10);
@@ -44,6 +45,7 @@ public class RayTest extends SimpleApplication {
 		
 	}
 	
+	@Override
 	public void simpleUpdate(float tpf) {
 		
 		System.out.println("loc:"+cam.getLocation());

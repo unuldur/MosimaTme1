@@ -1,0 +1,22 @@
+@relation 'map-weka.filters.unsupervised.attribute.Remove-R12-weka.filters.unsupervised.attribute.Remove-R8,11-weka.filters.unsupervised.attribute.Remove-R9-weka.filters.unsupervised.attribute.Remove-R2-weka.filters.unsupervised.attribute.Remove-R3'
+
+@attribute offSize numeric
+@attribute offValue numeric
+@attribute averageAltitude numeric
+@attribute minAltitude numeric
+@attribute maxAltitude numeric
+@attribute fovValue numeric
+@attribute victory {VICTORY,DEFEAT}
+
+@data
+3,80488.64,-82127.61,-140.41089,-114.70528,16778.994,DEFEAT
+2,56461.15,-76315.12,-145.09079,-113.91285,16013.099,DEFEAT
+1,23657.816,-77625.64,-137.1995,-109.97145,16331.273,DEFEAT
+2,54935.117,-68235.086,-143.8089,-112.17001,17464.855,DEFEAT
+1,23279.104,-80706.44,-133.51976,-111.49666,18699.791,DEFEAT
+1,26167.764,-70220.74,-141.6699,-100.64464,14739.139,DEFEAT
+1,25978.05,-74900.164,-140.49905,-107.952225,17137.377,VICTORY
+3,82353.41,-80060.29,-139.52002,-114.187775,19814.67,VICTORY
+4,108665.84,-61816.73,-134.28453,-111.235504,18909.672,VICTORY
+0,0,-105870.71,-253.64941,-115.55933,605.39746,DEFEAT
+1,27999.242,-74767.28,-147.84062,-103.73587,15830.743,VICTORY

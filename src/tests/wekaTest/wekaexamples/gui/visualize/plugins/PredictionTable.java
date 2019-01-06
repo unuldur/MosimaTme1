@@ -45,7 +45,8 @@ public class PredictionTable
    * 
    * @return		the version string
    */
-  public String getDesignVersion() {
+  @Override
+public String getDesignVersion() {
     return "3.5.7";
   }
 
@@ -55,7 +56,8 @@ public class PredictionTable
    * 
    * @return		the version string
    */
-  public String getMinVersion() {
+  @Override
+public String getMinVersion() {
     return "3.5.3";
   }
 
@@ -65,7 +67,8 @@ public class PredictionTable
    * 
    * @return		the version string
    */
-  public String getMaxVersion() {
+  @Override
+public String getMaxVersion() {
     return "3.6.0";
   }
 
@@ -84,7 +87,8 @@ public class PredictionTable
    * @return 		menuitem for opening visualization(s), or null
    *         		to indicate no visualization is applicable for the input
    */
-  public JMenuItem getVisualizeMenuItem(FastVector preds, Attribute classAtt) {
+  @Override
+public JMenuItem getVisualizeMenuItem(FastVector preds, Attribute classAtt) {
     final FastVector finalPreds = preds;
     final Attribute finalClassAtt = classAtt;
     
@@ -94,7 +98,8 @@ public class PredictionTable
 
     JMenuItem result = new JMenuItem("Prediction table");
     result.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+      @Override
+	public void actionPerformed(ActionEvent e) {
 	display(finalPreds, finalClassAtt);
       }
     });

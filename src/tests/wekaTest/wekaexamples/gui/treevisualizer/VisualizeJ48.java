@@ -30,6 +30,7 @@ import weka.gui.treevisualizer.TreeVisualizer;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Displays a trained J48 as tree.
@@ -57,7 +58,7 @@ public class VisualizeJ48 {
     // display tree
     TreeVisualizer tv = new TreeVisualizer(null, cls.graph(), new PlaceNode2());
     JFrame jf = new JFrame("Weka Classifier Tree Visualizer: J48");
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setSize(800, 600);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(tv, BorderLayout.CENTER);

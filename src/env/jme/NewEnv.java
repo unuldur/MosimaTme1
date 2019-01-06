@@ -1,69 +1,41 @@
 package env.jme;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
-import org.lwjgl.Sys;
-
-import com.bulletphysics.collision.narrowphase.GjkEpaSolver.Results;
-import com.bulletphysics.collision.shapes.CollisionShape;
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
 import com.jme3.app.SimpleApplication;
 import com.jme3.bounding.BoundingBox;
-import com.jme3.bounding.BoundingSphere;
 import com.jme3.bounding.BoundingVolume;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.bullet.PhysicsSpace;
-import com.jme3.bullet.collision.shapes.CapsuleCollisionShape;
 import com.jme3.bullet.collision.shapes.SphereCollisionShape;
-import com.jme3.bullet.control.BetterCharacterControl;
-import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.RigidBodyControl;
-import com.jme3.bullet.util.CollisionShapeFactory;
-import com.jme3.collision.CollisionResult;
 import com.jme3.collision.CollisionResults;
 import com.jme3.effect.ParticleEmitter;
 import com.jme3.effect.ParticleMesh;
-import com.jme3.input.ChaseCamera;
 import com.jme3.input.KeyInput;
-import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.Quaternion;
 import com.jme3.math.Ray;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
-import com.jme3.renderer.Camera.FrustumIntersect;
 import com.jme3.renderer.ViewPort;
 import com.jme3.scene.Geometry;
-import com.jme3.scene.Mesh;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.VertexBuffer;
-import com.jme3.scene.debug.Arrow;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.terrain.geomipmap.TerrainLodControl;
-import com.jme3.terrain.geomipmap.TerrainPatch;
 import com.jme3.terrain.geomipmap.TerrainQuad;
 import com.jme3.texture.Texture;
 import com.jme3.texture.Texture.WrapMode;
-import com.jogamp.opengl.math.geom.Frustum;
-
 import dataStructures.tuple.Tuple2;
 import env.terrain.TerrainTools;
 import sma.AbstractAgent;
-import sma.actionsBehaviours.LegalActions;
 import sma.actionsBehaviours.MyBehavior;
-import sma.actionsBehaviours.LegalActions.LegalAction;
-import sma.actionsBehaviours.LegalActions.Orientation;
 import sma.actionsBehaviours.PrologBehavior;
 import sma.agents.FinalAgent;
 import utils.Utils;
@@ -399,8 +371,8 @@ public class NewEnv extends SimpleApplication {
 	public synchronized void stopMoving(String agent){
 		if (players.containsKey(agent)) {
 			Spatial player = players.get(agent);
-			((PlayerControl)player.getControl(PlayerControl.class)).destination = null;
-			((PlayerControl)player.getControl(PlayerControl.class)).ismoving = false;
+			player.getControl(PlayerControl.class).destination = null;
+			player.getControl(PlayerControl.class).ismoving = false;
 		}
 	}
 
@@ -473,7 +445,7 @@ public class NewEnv extends SimpleApplication {
 					
 					enemyAgent.life -= AbstractAgent.SHOT_DAMAGE;
 					enemyAgent.lastHit = System.currentTimeMillis();
-					if(enemy.equals("Player1")) Utils.saveSituation(System.getProperty("user.dir")+"/ressources/learningBase/touch", MyBehavior.sit);
+					if(enemy.equals("Player1")) Utils.saveSituation(System.getProperty("user.dir")+"/ressources/learningBase/touch", MyBehavior.sitMy);
 
 					if (enemyAgent.life <=0) {
 						enemyAgent.dead = true;
@@ -482,7 +454,7 @@ public class NewEnv extends SimpleApplication {
 						System.out.println("Simulation done");
 						
 						if(!enemy.equals("Player1")){
-							PrologBehavior.sit.victory = true;
+							MyBehavior.sitMy.victory = true;
 						}
 						
 						saveCSV();
@@ -503,8 +475,15 @@ public class NewEnv extends SimpleApplication {
 	}
 	
 	public static void saveCSV(){
-		
-		String res = PrologBehavior.sit.toCSVFile();
+		String fileLocalisation;
+		if(!MyBehavior.sitMy.victory) {
+			fileLocalisation = System.getProperty("user.dir")+"/ressources/learningBase/defeat";
+		}else {
+			fileLocalisation = System.getProperty("user.dir")+"/ressources/learningBase/victory";
+		}
+		Utils.saveSituation(fileLocalisation, MyBehavior.sitMy);
+		/*
+		String res = MyBehavior.sit.toCSVFile();
 		int id = new Random().nextInt(10000);
 		System.out.println(res);
 		try{
@@ -515,7 +494,7 @@ public class NewEnv extends SimpleApplication {
 		} catch (IOException e) {
 		  System.out.println(e);
 		  System.out.println("Experiment saving failed");
-		}
+		}*/
 		
 	}
 

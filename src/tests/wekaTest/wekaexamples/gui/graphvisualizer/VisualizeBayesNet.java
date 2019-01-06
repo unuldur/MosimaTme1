@@ -27,9 +27,8 @@ import weka.core.converters.ConverterUtils.DataSource;
 import weka.gui.graphvisualizer.GraphVisualizer;
 
 import java.awt.BorderLayout;
-import java.io.ByteArrayInputStream;
-
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  * Displays a trained BayesNet graph.
@@ -58,7 +57,7 @@ public class VisualizeBayesNet {
     GraphVisualizer gv = new GraphVisualizer();
     gv.readBIF(cls.graph());
     JFrame jf = new JFrame("BayesNet graph");
-    jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    jf.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jf.setSize(800, 600);
     jf.getContentPane().setLayout(new BorderLayout());
     jf.getContentPane().add(gv, BorderLayout.CENTER);

@@ -29,7 +29,7 @@ hunt(Life,Time,OffSize,DefSize,Radius,MapWidth,EnemyInSight):-
 	inGoodHealth(Life),
 	being_attacked(Time),
 	not(EnemyInSight),
-	jpl_call('sma.actionsBehaviours.PrologBehavior',executeHunt,[],@(void)).
+	jpl_call('sma.actionsBehaviours.MyBehavior',executeHunt,[],@(void)).
 
 toOpenFire(EnemyInSight,P):-
 	shotImpact(P),
@@ -37,7 +37,7 @@ toOpenFire(EnemyInSight,P):-
 
 attack(EnemyInSight):-
 	EnemyInSight,
-	jpl_call('sma.actionsBehaviours.PrologBehavior',executeAttack,[],@(void)).
+	jpl_call('sma.actionsBehaviours.MyBehavior',executeAttack,[],@(void)).
 
 
 /*retreat(Life,Time):-  */
